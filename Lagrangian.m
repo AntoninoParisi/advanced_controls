@@ -6,4 +6,6 @@ params;
 
 disp('B + C + G : ')
 
-disp(eval(B + C + G'))
+disp(simplify(B + C + G'))
+
+

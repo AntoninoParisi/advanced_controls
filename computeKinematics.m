@@ -22,10 +22,7 @@ for index = 1:r
     a = DH(index,1);
     d = DH(index,3);
     
-    N(index,:) = T(:,1);
-    S(index,:) = T(:,2);
-    A(index,:) = T(:,3);
-    P(index,:) = T(:,4);
+    
     
     mtx = [
     cos(theta) -sin(theta)*cos(alfa) sin(theta)*sin(alfa) a*cos(theta);
@@ -34,6 +31,11 @@ for index = 1:r
     0               0                   0                   1
 ];
     T = T*mtx;
+    
+    N(index,:) = T(:,1);
+    S(index,:) = T(:,2);
+    A(index,:) = T(:,3);
+    P(index,:) = T(:,4);
     
     
     

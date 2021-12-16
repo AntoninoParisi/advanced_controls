@@ -50,5 +50,5 @@ for i = 1:r
     
 end
 
-
+syms DQ1 DQ2 DQ3 real
 C = A - 0.5*F;

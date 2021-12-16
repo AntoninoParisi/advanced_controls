@@ -2,6 +2,8 @@ function [B t1 t2 t3] = BMtx(J)
 
 symbols;
 
+
+
 % partial jacobian
 pl1 = [J(1:3,1)'; 0 0 0; 0 0 0;]';
 pl2 = [J(1:3,1:2)' ; 0 0 0]';
