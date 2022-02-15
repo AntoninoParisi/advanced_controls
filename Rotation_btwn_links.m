@@ -11,7 +11,6 @@ end
 
 
 dh;
-kinematicsParams;
 T = {};
 
 R = eye(4);

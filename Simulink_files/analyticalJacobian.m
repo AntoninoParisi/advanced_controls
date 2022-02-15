@@ -22,10 +22,10 @@ a4 = 0.16;
 
 % wrt frame 0
 JA = [[- a2*sin(t1) - a4*cos(t2)*sin(t1),  0,                         -a4*cos(t1)*sin(t2)]
-[                                0, -1,                                  a4*cos(t2)]
-[  a2*cos(t1) + a4*cos(t1)*cos(t2),  0,                         -a4*sin(t1)*sin(t2)]
-[                                0,  0,                                           0]
-[                               -1,  0,                                           0]
-[                                0,  0,                           cos(t1) - sin(t1)]];
+    [                                0, -1,                                  a4*cos(t2)]
+    [  a2*cos(t1) + a4*cos(t1)*cos(t2),  0,                         -a4*sin(t1)*sin(t2)]
+    [                                0,  0,                                           0]
+    [                               -1,  0,                                           0]
+    [                                0,  0,                           cos(t1) - sin(t1)]];
 
 end

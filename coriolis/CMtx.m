@@ -7,6 +7,8 @@ end
 
 syms t1 t2 d1
 symbols = [t1 d1 t2];
+syms dt1 dt2 dd1
+dsymbols = [dt1 dd1 dt2];
 
 A = cast(eye(3)*0,'sym');
 
@@ -25,7 +27,7 @@ for row = 1:r
         
         for simb = 1:r
             
-            A(row,col) = A(row,col) + diff(B(row,col),string(symbols(simb)));
+            A(row,col) = A(row,col) + diff(B(row,col),string(symbols(simb)))*dsymbols(simb)*dsymbols(col);
             
         end
         
@@ -41,7 +43,7 @@ for i = 1:r
         
         for k = 1:r
             
-            F(j,k) = F(j,k) + diff(B(j,k),string(symbols(i)));
+            F(j,k) = F(j,k) + diff(B(j,k),string(symbols(i)))*dsymbols(row)*dsymbols(col);
             
         end
         F(j,k) = simplify(F(j,k));

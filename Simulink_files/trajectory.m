@@ -1,6 +1,6 @@
 
 qi = 0;
-qf = pi/3;
+qf = pi/6;
 dqi = 0;
 dqf = 0;
 ti = 0;
@@ -21,13 +21,13 @@ p_end = pose(end);
 p_end = ones(1000,1)*p_end;
 pose = [pose p_end'];
 
-pose = [T2' ,pose',pose'*0,pose'*0];
+pose = [T2' ,pose',pose',pose'];
 velocity = 3*a3.*(T-ti).^2+2*a2.*(T-ti)+a1; % vel
 
 v_end = velocity(end);
 v_end = ones(1000,1)*v_end;
 velocity = [velocity v_end'];
-velocity = [T2' ,velocity',velocity'*0,velocity'*0];
+velocity = [T2' ,velocity',velocity',velocity'];
 
 
 
@@ -40,7 +40,7 @@ a_end = acceleration(end);
 a_end = ones(1000,1)*a_end;
 acceleration = [acceleration a_end'];
 
-acceleration = [T2' ,acceleration',acceleration'*0,acceleration'*0];
+acceleration = [T2' ,acceleration',acceleration',acceleration'];
 
 
 

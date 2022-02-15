@@ -12,8 +12,10 @@ robot.dh = [
     0,-pi/2,a3+d1,0;
     a4,0,0,t2
 ];
-kp = diag([ 250  350  100   50     1   1]);
-kd = diag([  35   45   15    1     0   0]);
+
+kp = eye(6)*10000;%diag([ 250  350  100   50     1   1]);
+kd = eye(6)*3000;%diag([  35   45   15    1     0   0]);
 
 
 % addpath('./Simulink_files')
+

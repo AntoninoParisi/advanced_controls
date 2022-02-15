@@ -1,12 +1,10 @@
 robot.dofs = 1;
-robot.lambda_mtx = eye(1); % positive definite matrix
+robot.lambda_mtx = 1; % positive definite matrix
 robot.kp = 10000;
 robot.kd = 3000;
 robot.q0 = [0];
 robot.dq0 = [0];
-K_th = eye(1)*1.1;
-
-
+K_th = eye(3); %% 3x3
 
 %% trajectory
 

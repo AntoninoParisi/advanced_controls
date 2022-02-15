@@ -10,6 +10,8 @@
 
 function [J] = jacobian(q)
 
+q = [0 0 0];
+
 t1 = q(1);
 d1 = q(2);
 t2 = q(3);
