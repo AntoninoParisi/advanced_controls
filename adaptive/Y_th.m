@@ -1,3 +1,4 @@
+% unused, rls implementation for simulink model
 function [Bk,Pk] = Y_th(sigma,q,qd,qdr,qddr, prev_B, prev_Pk)
 
 % 

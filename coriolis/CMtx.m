@@ -10,9 +10,8 @@ symbols = [t1 d1 t2];
 syms dt1 dt2 dd1
 dsymbols = [dt1 dd1 dt2];
 
-A = cast(eye(3)*0,'sym');
+C = cast(eye(3)*0,'sym');
 
-F = cast(eye(3)*0,'sym');
 
 [r,c] = size(B);
 
@@ -21,36 +20,26 @@ if( r ~= c)
 end
 
 
-for row = 1:r
+for row = 1:r % i
     
-    for col = 1:r
+    for col = 1:r % j 
         
-        for simb = 1:r
+        for simb = 1:r % k
             
-            A(row,col) = A(row,col) + diff(B(row,col),string(symbols(simb)))*dsymbols(simb)*dsymbols(col);
-            
+            C(row,col) = C(row,col) + diff(B(row,col),string(symbols(simb)));
+            C(row,col) = C(row,col) + diff(B(row,simb),string(symbols(col)));
+            C(row,col) = C(row,col) - diff(B(col,simb),string(symbols(row)));
+            C(row,col) = C(row,col) * dsymbols(simb) * dsymbols(col) * 0.5;
         end
         
-        A(row,col) = simplify(A(row,col));
+        C(row,col) = simplify(C(row,col));
     
     end
     
 end
 
-for i = 1:r
-    
-    for j = 1:r
-        
-        for k = 1:r
-            
-            F(j,k) = F(j,k) + diff(B(j,k),string(symbols(i)))*dsymbols(row)*dsymbols(col);
-            
-        end
-        F(j,k) = simplify(F(j,k));
-    
-    end
-    
-end
 
-syms DQ1 DQ2 DQ3 real
-C = A - 0.5*F;
+
+
+
+

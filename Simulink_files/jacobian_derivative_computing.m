@@ -21,7 +21,7 @@ dJ13dt = diff(J13,t)
 
 %%
 
-J23 = a4*cos(t2(t)) + a4*cos(t2(t));
+J23 = a4*cos(t2(t)) ;
 
 dJ23dt = diff(J23,t)
 

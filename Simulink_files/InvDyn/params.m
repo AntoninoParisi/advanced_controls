@@ -11,5 +11,5 @@ robot.dh = [
 kp = eye(3)*1000;
 kd = eye(3)*40;
 
-
+trajectory
 % addpath('./Simulink_files')

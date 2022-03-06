@@ -1,3 +1,4 @@
+% computed version of the rot_mtx, subs the q params to rotation matrix
 function [R]= Rotation_btwn_links(i,j,q)
 
 if(i <= 0 || i>5)

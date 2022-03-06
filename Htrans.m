@@ -1,4 +1,5 @@
-function P = HTrans(M,p)
+% homogenuos transformation M is 3x4 and p is 3x1
+function P = Htrans(M,p)
 
 [r,c] = size(p);
 

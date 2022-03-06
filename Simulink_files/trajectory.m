@@ -1,6 +1,6 @@
 
 qi = 0;
-qf = pi/6;
+qf = pi/3;
 dqi = 0;
 dqf = 0;
 ti = 0;

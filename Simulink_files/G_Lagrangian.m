@@ -1,5 +1,6 @@
 function [G] = G_Lagrangian(q)
-
+a2 = 0.4;
+a4 = 0.16;
 
 t1 = q(1);
 d1 = q(2);

@@ -1,7 +1,8 @@
 %% evaluation of T
 params;
 
-[J,pl1,pl2,pl3,wl1,wl2,wl3] = jacobian(th1,dd1,th2);
+
+[J,pl1,pl2,pl3,wl1,wl2,wl3] = jacobian(t1,d1,t2);
 B = BMtx(J);
 
 T = 0.5 * qd * B * qd';

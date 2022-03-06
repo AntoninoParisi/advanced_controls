@@ -83,28 +83,28 @@ function [tau] = recursiveNewtonEuler(q,dq, ddq)
     dwm = dwm(:, 2:end);
     r = r(:, 2:end);
     r_i_CoM = r_i_CoM(:, 2:end);
-    % ... and append a mock sentinel link/motor at the end
+
     dq = [dq; 0];
     ddq = [ddq; 0];
     I_m = [1 1 1];
     I_m = [I_m, 0];
     Kr = [kri, 0];
     zm = [zm, zeros(3, 1)];
-
+    
+    Iaug_cell = {Im1,Im2,Im3};
     
     for i= dof:-1:1
         % precomputations
         
         R_previous = RH(:,:,i);  % from i-1 to i
         R_next = RH(:,:,i+1);  % from i to i+1
-        mi = 0.4;
-        Iaug = rand(3);
+        Iaug = Iaug_cell{i};
         
-        f(:, i) = R_next*f(:, i+1) + mi*ddpC(:, i);
+        f(:, i) = R_next*f(:, i+1) + m(i+1)*ddpC(:, i);
         mu(:, i) = - cross(f(:, i), r(:, i) + r_i_CoM(:, i)) + R_next*mu(:, i+1) + cross(R_next*f(:, i+1), r_i_CoM(:, i)) + Iaug*dw(:, i) + cross(w(:, i), Iaug*w(:, i)) ... 
                     ; %Kr(i+1)*ddq(i+1)*Im(i+1)*zm(:, i+1) + Kr(i+1)*dq(i+1)*Im(i+1)*cross(w(:, i), zm(:, i+1));
-        f(:, i) = simplify(f(:, i));
-        mu(:, i) = simplify(mu(:, i));
+        f(:, i) = f(:, i);
+        mu(:, i) = mu(:, i);
            
         % get generalized torques 
         if joints(i) == 'R' 
@@ -112,7 +112,6 @@ function [tau] = recursiveNewtonEuler(q,dq, ddq)
         else
            tau(i) = f(:, i)'*R_previous'*z0 ;%+ Kr(i)*Im(i)*dwm(:, i)'*zm(:, i) + Fv(i, i)*dq(i) + Fs(i, i)*sign(dq(i));
         end
-        tau(i) = simplify(tau(i));
     end
     
 end

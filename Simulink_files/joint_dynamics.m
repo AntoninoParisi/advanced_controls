@@ -117,7 +117,6 @@ sys(n+1:2*n) = B \ (u - C*dq - G);%-pinv(B)*((C*dq + G)-u);
 %=============================================================================
 %
 function sys=mdlOutputs(t,x,u,robot)
-
 sys = x;
 
 % end mdlOutputs

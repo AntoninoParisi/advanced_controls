@@ -8,8 +8,13 @@ robot.dh = [
     0,-pi/2,a3+d1,0;
     a4,0,0,t2
 ];
-kp = eye(6)*100;
-kd = eye(6)*40;
+w = diag([   200   200   200    10   10     10]);
+z = diag([ 0.95 0.95 0.95  0.95 0.95 0.95]);
 
+
+kp = w^2;
+kd = 2*z*w;
+trajectory;
 
 % addpath('./Simulink_files')
+

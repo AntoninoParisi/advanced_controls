@@ -1,4 +1,3 @@
-addpath('../.')
 
 
 
@@ -13,9 +12,17 @@ robot.dh = [
     a4,0,0,t2
 ];
 
-kp = eye(6)*10000;%diag([ 250  350  100   50     1   1]);
-kd = eye(6)*3000;%diag([  35   45   15    1     0   0]);
+w = eye(6)*5;%diag([  25  100   45     1     1   1]);
+z = eye(6)*0.1;%diag([ 0.5  1.5  1.5     0     0   0]);
+
+kp = w^2; % stiff
+kd = 2*z*w; % damp
 
 
-% addpath('./Simulink_files')
-
+x = [    0.4800
+   -0.4386
+    0.1500
+         0
+         0
+   -1.0472
+]; % custom pose avoiding sing.

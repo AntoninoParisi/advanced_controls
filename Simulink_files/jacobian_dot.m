@@ -26,7 +26,7 @@ a4 = 0.16;
 
 J11 = a4*sin(t1)*sin(t2)*dt2 - a4*cos(t1)*cos(t2)*dt1 - a2*cos(t1)*dt1;
 J13 = a4*sin(t1)*sin(t2)*dt1 - a4 * cos(t1)*cos(t2)*dt2;
-J23 = -2*a4*sin(t2)*dt2;
+J23 = -a4*sin(t2)*dt2;
 J31 = -a2*sin(t1)*dt1 - a4*cos(t2)*sin(t1)*dt1 - a4 * cos(t1)*sin(t2)*dt2;
 J33 = -a4 * cos(t1) * sin(t2) * dt1 - a4 * cos(t2)*sin(t1)*dt2;
 J43 = -cos(t1)*dt1;

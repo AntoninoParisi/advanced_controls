@@ -1,14 +1,12 @@
-addpath('../.')
 
-kp = eye(6)*100;
-kd = eye(6)*25;
+kp = eye(6)*200;
+kd = eye(6)*35;
 
 
-% compliance  [x y z phi theta psi]
-wt =  250* eye(6);
-zt = 450* eye(6);
+wt =  10* eye(6);
+zt = 0.95* eye(6);
 
-Mt  = 0.75*eye(6);
+Mt  = 0.075*eye(6);
 KPt = wt^2;
 KDt = 2*zt*wt;
 

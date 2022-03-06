@@ -131,7 +131,7 @@
 % 
 
 
-function [tau] = rne(qD, qDD, kin)
+function [tau] = rne_wrong(qD, qDD, kin)
 %RNE compute Recursive Newton-Euler formulation
 
 z0 = [0; 0; 1];

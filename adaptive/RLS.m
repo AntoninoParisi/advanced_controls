@@ -1,3 +1,4 @@
+% unused, rls implementation for simulink model
 function [B,Y_H] = RLS(X,Y,B0,lambda,Pk)
 
 
